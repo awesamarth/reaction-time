@@ -208,11 +208,12 @@ export default function SinglePlayer() {
         const txTime = Math.round(performance.now() - txStart)
 
         // Alternative: Use sendTransactionSync for simpler usage (makes multiple RPC calls)
-        // const txTime = await client.sendTransactionSync({
+        // const hash = await client.sendTransactionSync({
         //   to: account.address,
         //   value: 0n,
         //   data: `0x${currentRound.toString(16).padStart(2, '0')}` as `0x${string}`
         // })
+        // Note: This signs and sends in one call, but is slower than pre-signing
 
         const result: Result = {
           attempt: currentRound,
